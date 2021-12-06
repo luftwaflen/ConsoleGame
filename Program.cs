@@ -5,13 +5,13 @@
         static void Main(string[] args)
         {
             TestField testField = new TestField();
+            Creatures.Hero warrior = new Creatures.Heroes.Warrior();
+            testField[2, 2] = warrior;
             testField.ShowField();
-            while (true)
-            {
-                testField.Move();
-                System.Console.Clear();
-                testField.ShowField();
-            }
+
+
+            
+            //warrior.Move();
         }
     }
 }

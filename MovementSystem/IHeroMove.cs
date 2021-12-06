@@ -2,7 +2,7 @@
 {
     internal interface IHeroMove
     {
-        public void Move();
+        public void Move(int directionKey, TestField currentField);
         static public bool Step(ref Point traveler, ref Point destination)
         {
             if (!destination.isBarrier)

@@ -1,6 +1,6 @@
 ﻿namespace Roguelike
 {
-    internal class TestField : MovementSystem.IHeroMove
+    internal class TestField
     {
         public TestField()
         {
@@ -11,7 +11,7 @@
             gameField = new Point[ySize, xSize];
             FieldGenerator();
         }
-        Point[,] gameField;
+        public Point[,] gameField;
         private int xSize;
         private int ySize;
         public int heroPosX { get; set; }
@@ -40,7 +40,6 @@
                     gameField[y, x] = new Environment.Land();
                 }
             }
-            gameField[heroPosY, heroPosX] = new Creatures.Heroes.Warrior();
         }
         public void ShowField()
         {
@@ -51,51 +50,6 @@
                     System.Console.Write(gameField[y, x].Symbol);
                 }
                 System.Console.WriteLine();
-            }
-        }
-        public void Move()
-        {
-            Actions.GameActions action = Actions.GameActions.Stand;
-            int key = System.Console.ReadKey().KeyChar;
-            if (System.Enum.IsDefined(typeof(Actions.GameActions), key))
-                action = (Actions.GameActions)key;
-
-            switch (action)
-            {
-                case Actions.GameActions.Up:
-                    {
-                        if (MovementSystem.IHeroMove.Step(ref gameField[heroPosY, heroPosX],
-                            ref gameField[heroPosY - 1, heroPosX]))
-                            heroPosY -= 1;
-                    }
-                    break;
-
-                case Actions.GameActions.Down:
-                    {
-                        if (MovementSystem.IHeroMove.Step(ref gameField[heroPosY, heroPosX],
-                            ref gameField[heroPosY + 1, heroPosX]))
-                            heroPosY += 1;
-                    }
-                    break;
-
-                case Actions.GameActions.Left:
-                    {
-                        if (MovementSystem.IHeroMove.Step(ref gameField[heroPosY, heroPosX],
-                            ref gameField[heroPosY, heroPosX - 1]))
-                            heroPosX -= 1;
-                    }
-                    break;
-
-                case Actions.GameActions.Right:
-                    {
-                        if (MovementSystem.IHeroMove.Step(ref gameField[heroPosY, heroPosX],
-                            ref gameField[heroPosY, heroPosX + 1]))
-                            heroPosX += 1;
-                    }
-                    break;
-
-                default:
-                    break;
             }
         }
     }
