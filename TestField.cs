@@ -6,16 +6,12 @@
         {
             xSize = 25;
             ySize = 8;
-            heroPosX = 2;
-            heroPosY = 2;
             gameField = new Point[ySize, xSize];
             FieldGenerator();
         }
         public Point[,] gameField;
-        private int xSize;
-        private int ySize;
-        public int heroPosX { get; set; }
-        public int heroPosY { get; set; }
+        public int xSize { get; set; }
+        public int ySize { get; set; }
         public Point this[int y, int x]
         {
             get => gameField[y, x];
@@ -40,17 +36,6 @@
                     gameField[y, x] = new Environment.Land();
                 }
             }
-        }
-        public void ShowField()
-        {
-            for (int y = 0; y < ySize; y++)
-            {
-                for (int x = 0; x < xSize; x++)
-                {
-                    System.Console.Write(gameField[y, x].Symbol);
-                }
-                System.Console.WriteLine();
-            }
-        }
+        }        
     }
 }

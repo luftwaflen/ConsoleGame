@@ -2,6 +2,8 @@
 {
     internal abstract class Hero : Creature, BattleSystem.IHeroAttack, MovementSystem.IHeroMove
     {
+        public int heroPosX { get; set; }
+        public int heroPosY { get; set; }
         public virtual int Level { get; set; }
         public virtual int Exp { get; set; }
         public virtual void LvlUp()
@@ -23,33 +25,63 @@
             {
                 case Actions.GameActions.Up:
                     {
-                        if (MovementSystem.IHeroMove.Step(ref currentField.gameField[currentField.heroPosY, currentField.heroPosX],
-                            ref currentField.gameField[currentField.heroPosY - 1, currentField.heroPosX]))
-                            currentField.heroPosY -= 1;
+                        if (MovementSystem.IHeroMove.Step(
+                            ref currentField.gameField[heroPosY, heroPosX],
+                            ref currentField.gameField[heroPosY - 1, heroPosX])
+                            )
+                        {
+                            heroPosY -= 1;
+                            ConsoleRealization.ShowInConsole.ReWriteFieldAfterStep(
+                                currentField,
+                                (heroPosX, heroPosY + 1),
+                                (heroPosX, heroPosY)
+                                );
+                        }
                     }
                     break;
 
                 case Actions.GameActions.Down:
                     {
-                        if (MovementSystem.IHeroMove.Step(ref currentField.gameField[currentField.heroPosY, currentField.heroPosX],
-                            ref currentField.gameField[currentField.heroPosY + 1, currentField.heroPosX]))
-                            currentField.heroPosY += 1;
+                        if (MovementSystem.IHeroMove.Step(ref currentField.gameField[heroPosY, heroPosX],
+                            ref currentField.gameField[heroPosY + 1, heroPosX]))
+                        {
+                            heroPosY += 1;
+                            ConsoleRealization.ShowInConsole.ReWriteFieldAfterStep(
+                                currentField,
+                                (heroPosX, heroPosY - 1),
+                                (heroPosX, heroPosY)
+                                );
+                        }
                     }
                     break;
 
                 case Actions.GameActions.Left:
                     {
-                        if (MovementSystem.IHeroMove.Step(ref currentField.gameField[currentField.heroPosY, currentField.heroPosX],
-                            ref currentField.gameField[currentField.heroPosY, currentField.heroPosX - 1]))
-                            currentField.heroPosX -= 1;
+                        if (MovementSystem.IHeroMove.Step(ref currentField.gameField[heroPosY, heroPosX],
+                            ref currentField.gameField[heroPosY, heroPosX - 1]))
+                        {
+                            heroPosX -= 1;
+                            ConsoleRealization.ShowInConsole.ReWriteFieldAfterStep(
+                                currentField,
+                                (heroPosX + 1, heroPosY),
+                                (heroPosX, heroPosY)
+                                );
+                        }
                     }
                     break;
 
                 case Actions.GameActions.Right:
                     {
-                        if (MovementSystem.IHeroMove.Step(ref currentField.gameField[currentField.heroPosY, currentField.heroPosX],
-                            ref currentField.gameField[currentField.heroPosY, currentField.heroPosX + 1]))
-                            currentField.heroPosX += 1;
+                        if (MovementSystem.IHeroMove.Step(ref currentField.gameField[heroPosY, heroPosX],
+                            ref currentField.gameField[heroPosY, heroPosX + 1]))
+                        {
+                            heroPosX += 1;
+                            ConsoleRealization.ShowInConsole.ReWriteFieldAfterStep(
+                                currentField,
+                                (heroPosX - 1, heroPosY),
+                                (heroPosX, heroPosY)
+                                );
+                        }
                     }
                     break;
             }

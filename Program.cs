@@ -7,11 +7,12 @@
             TestField testField = new TestField();
             Creatures.Hero warrior = new Creatures.Heroes.Warrior();
             testField[2, 2] = warrior;
-            testField.ShowField();
-
-
-            
-            //warrior.Move();
+            ConsoleRealization.ShowInConsole.ShowField(testField);
+            while (true)
+            {
+                int directionKey = System.Console.ReadKey(true).KeyChar;
+                warrior.Move(directionKey, testField);
+            }
         }
     }
 }

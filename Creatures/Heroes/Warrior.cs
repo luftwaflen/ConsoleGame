@@ -8,6 +8,8 @@
             Armor = 1;
             Level = 1;
             Exp = 0;
+            heroPosX = 2;
+            heroPosY = 2;
         }
         public override char Symbol => 'w';
         public override int Hp { get; set; }
