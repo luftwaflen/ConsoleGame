@@ -6,13 +6,13 @@
         {
             xSize = 25;
             ySize = 8;
-            gameField = new Point[ySize, xSize];
+            gameField = new Allfather[ySize, xSize];
             FieldGenerator();
         }
-        public Point[,] gameField;
+        public Allfather[,] gameField;
         public int xSize { get; set; }
         public int ySize { get; set; }
-        public Point this[int y, int x]
+        public Allfather this[int y, int x]
         {
             get => gameField[y, x];
             set { gameField[y, x] = value; }

@@ -1,6 +1,6 @@
 ﻿namespace Roguelike.Creatures
 {
-    internal abstract class Creature : Point, BattleSystem.IDamaged
+    internal abstract class Creature : Allfather, BattleSystem.IDamaged
     {
         public override bool isCreature => true;
         public override bool isBarrier => false;

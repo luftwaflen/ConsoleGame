@@ -3,11 +3,11 @@
     internal interface IHeroMove
     {
         public void Move(int directionKey, TestField currentField);
-        static public bool Step(ref Point traveler, ref Point destination)
+        static public bool Step(ref Allfather traveler, ref Allfather destination)
         {
             if (!destination.isBarrier)
             {
-                Point tmp = traveler;
+                Allfather tmp = traveler;
                 traveler = destination;
                 destination = tmp;
                 return true;

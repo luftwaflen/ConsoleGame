@@ -1,6 +1,6 @@
 ﻿namespace Roguelike.Environment
 {
-    internal class Wall : Point
+    internal class Wall : Allfather
     {
         public Wall()
         {
