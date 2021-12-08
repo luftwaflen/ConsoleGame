@@ -30,12 +30,9 @@
                             ref currentField.gameField[heroPosY - 1, heroPosX])
                             )
                         {
+                            currentField.gameField[heroPosY, heroPosX].Print(heroPosY, heroPosX);
                             heroPosY -= 1;
-                            ConsoleRealization.ShowInConsole.ReWriteFieldAfterStep(
-                                currentField,
-                                (heroPosX, heroPosY + 1),
-                                (heroPosX, heroPosY)
-                                );
+                            currentField.gameField[heroPosY, heroPosX].Print(heroPosY, heroPosX);
                         }
                     }
                     break;
@@ -45,12 +42,9 @@
                         if (MovementSystem.IHeroMove.Step(ref currentField.gameField[heroPosY, heroPosX],
                             ref currentField.gameField[heroPosY + 1, heroPosX]))
                         {
+                            currentField.gameField[heroPosY, heroPosX].Print(heroPosY, heroPosX);
                             heroPosY += 1;
-                            ConsoleRealization.ShowInConsole.ReWriteFieldAfterStep(
-                                currentField,
-                                (heroPosX, heroPosY - 1),
-                                (heroPosX, heroPosY)
-                                );
+                            currentField.gameField[heroPosY, heroPosX].Print(heroPosY, heroPosX);
                         }
                     }
                     break;
@@ -60,12 +54,9 @@
                         if (MovementSystem.IHeroMove.Step(ref currentField.gameField[heroPosY, heroPosX],
                             ref currentField.gameField[heroPosY, heroPosX - 1]))
                         {
+                            currentField.gameField[heroPosY, heroPosX].Print(heroPosY, heroPosX);
                             heroPosX -= 1;
-                            ConsoleRealization.ShowInConsole.ReWriteFieldAfterStep(
-                                currentField,
-                                (heroPosX + 1, heroPosY),
-                                (heroPosX, heroPosY)
-                                );
+                            currentField.gameField[heroPosY, heroPosX].Print(heroPosY, heroPosX);
                         }
                     }
                     break;
@@ -75,12 +66,9 @@
                         if (MovementSystem.IHeroMove.Step(ref currentField.gameField[heroPosY, heroPosX],
                             ref currentField.gameField[heroPosY, heroPosX + 1]))
                         {
+                            currentField.gameField[heroPosY, heroPosX].Print(heroPosY, heroPosX);
                             heroPosX += 1;
-                            ConsoleRealization.ShowInConsole.ReWriteFieldAfterStep(
-                                currentField,
-                                (heroPosX - 1, heroPosY),
-                                (heroPosX, heroPosY)
-                                );
+                            currentField.gameField[heroPosY, heroPosX].Print(heroPosY, heroPosX);
                         }
                     }
                     break;
