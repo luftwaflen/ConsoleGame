@@ -5,7 +5,7 @@
         public void Move(int directionKey, TestField currentField);
         static public bool Step(ref Allfather traveler, ref Allfather destination)
         {
-            if (!destination.isBarrier)
+            if (!destination.isBarrier && !destination.isCreature)
             {
                 Allfather tmp = traveler;
                 traveler = destination;

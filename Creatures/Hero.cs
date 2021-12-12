@@ -4,6 +4,7 @@
     {
         public int heroPosX { get; set; }
         public int heroPosY { get; set; }
+        public virtual string Name { get; set; }
         public virtual int Level { get; set; }
         public virtual int Exp { get; set; }
         public virtual void LvlUp()
@@ -15,7 +16,6 @@
                 Exp = 0;
             }
         }
-
         public void Move(int directionKey, TestField currentField)
         {
             Actions.GameActions action = Actions.GameActions.Stand;
@@ -73,6 +73,13 @@
                     }
                     break;
             }
+        }
+        public void PrintStats()
+        {
+            System.Console.SetCursorPosition(0, 9);
+            System.Console.WriteLine($"Имя: {Name}");
+            System.Console.WriteLine($"Класс: {this}");
+            System.Console.WriteLine($"Здоровье: {Hp}");
         }
     }
 }
