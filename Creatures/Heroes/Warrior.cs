@@ -13,6 +13,6 @@
             heroPosY = posY;
         }
         public override char Symbol => 'w';
-        public override string ToString() => "Воинdd";
+        public override string ToString() => "Воин";
     }
 }
